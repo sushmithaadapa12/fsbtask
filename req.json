@@ -1,0 +1,83 @@
+{
+    "jobname": "Sample Job",
+    "jobstatus": "Open",
+    "submissiondeadline": "2023-08-15T00:00:00Z",
+    "synopsis": "Sample job description",
+    "projectspecifications": "Sample project specifications",
+    "budget": 10000,
+    "productionclientName": "Sample Production"
+}
+
+{
+    "shoots": [
+      {
+        "from_date": "2023-08-20T09:00:00Z",
+        "to_date": "2023-08-21T18:00:00Z",
+        "shoot_location": "Sample Location 1"
+      },
+      {
+        "from_date": "2023-08-25T09:00:00Z",
+        "to_date": "2023-08-26T18:00:00Z",
+        "shoot_location": "Sample Location 2"
+      }
+    ]
+  }
+  {
+    "auditions": [
+      {
+        "from_date": "2023-08-18T10:00:00Z",
+        "to_date": "2023-08-18T14:00:00Z",
+        "audition_location": "Sample Audition Location 1"
+      },
+      {
+        "from_date": "2023-08-23T10:00:00Z",
+        "to_date": "2023-08-23T14:00:00Z",
+        "audition_location": "Sample Audition Location 2"
+      }
+    ]
+  }
+  {
+    "roles": [
+      {
+        "ratesperunitoftime": 50,
+        "agency_fee_checked": true,
+        "agency_fee_percentage": 10,
+        "recall_fees": 20,
+        "travel": true,
+        "accommodation": true,
+        "expenses": false,
+        "usage_fee": 200,
+        "gender": "Male",
+        "playingage_start": 25,
+        "playing_age_end": 35,
+        "age_requirement": "25-35 years",
+        "childLicense_required": false,
+        "nudity_clause": true,
+        "sensitive_contentmessage": "Nudity involved",
+        "job_production_id": "sample_public_id"
+      },
+      {
+        "ratesperunitoftime": 60,
+        "agency_fee_checked": false,
+        "agency_fee_percentage": 0,
+        "recall_fees": 15,
+        "travel": false,
+        "accommodation": false,
+        "expenses": true,
+        "usage_fee": 250,
+        "gender": "Female",
+        "playingage_start": 20,
+        "playing_age_end": 30,
+        "age_requirement": "20-30 years",
+        "childLicense_required": true,
+        "nudity_clause": false,
+        "sensitive_contentmessage": "No nudity involved",
+        "job_production_id": "sample_public_id"
+      }
+    ]
+  }
+  {
+    "public_id": "sample_public_id",
+    "jobStatus": "Closed"
+  }
+    
