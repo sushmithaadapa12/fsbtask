@@ -4,6 +4,10 @@ const router = express.Router();
 
 const productionRoutes = require('./production');
 
-productionRoutes(router);  /*production Routes*/
+const userRoutes = require('./user');
+
+productionRoutes(router);
+
+userRoutes(router);
 
 module.exports = router;

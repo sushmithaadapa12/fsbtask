@@ -1,7 +1,8 @@
-const production = require('./production');
-
+const productionService = require('./production');
+const usersService = require('./users');
 
 
 module.exports= {
-    production,
+    productionService,
+    usersService
 }

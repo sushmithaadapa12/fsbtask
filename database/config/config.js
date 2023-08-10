@@ -10,4 +10,5 @@ module.exports = {
     database,
     host,
     dialect,
+    logging: console.log,
 };

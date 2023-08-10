@@ -1,7 +1,14 @@
-const SubAccountController = require('../controllers/subAccountController');
-const AuthController = require('../controllers/authController');
-const JobController = require('../controllers/jobController');
+const {createSubAccount,superUserSignUp,createJob1,loginUser,assignPermissionsToSubAccount} = require('../controller/users');
 
-router.post('/subaccounts', SubAccountController.createSubAccount);
-router.post('/signup', AuthController.signup);
-router.post('/createJob', JobController.createJob);
+module.exports = (router)=>{
+    router.post('/creatSubaccount',createSubAccount);
+    
+    router.post('/signup', superUserSignUp);
+
+    router.post('/createJob',createJob1);
+
+    router.post('/login',loginUser);
+
+    router.post('/grant_permissions',assignPermissionsToSubAccount)
+
+}

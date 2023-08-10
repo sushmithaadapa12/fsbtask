@@ -2,7 +2,7 @@ const { createJob,updateJobStatus,createRoles,createAuditions,createShoots } = r
 
 module.exports = (router)=>{
   router.post('/', async (req, res) => {
-    res.send('hello from router :)');
+    res.send('hello from jobrouter :)');
   });
   
   router.post('/createJob', createJob);

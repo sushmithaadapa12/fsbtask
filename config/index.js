@@ -11,7 +11,7 @@ module.exports = {
     options: {
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
-      dialect: 'postgres',
+      dialect: "postgres",
       freezeTableName: true,
       quoteIdentifiers: false,
       define: {

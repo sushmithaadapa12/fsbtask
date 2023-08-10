@@ -131,14 +131,14 @@ const addJobSchema = {
   type: 'object',
   properties: {
     jobname: { type: 'string', minLength: 1 },
-    jobstatus: { type: 'string', minLength: 1 },
+    jobstatus: { type: 'string',enum: ['draft', 'publish'],},
     submissiondeadline: { type: 'string', format: 'date-time' },
     synopsis: { type: 'string', minLength: 1 },
     projectspecifications: { type: 'string', minLength: 1 },
     budget: { type: 'number', minimum: 0 },
-    productionclientName: { type: 'string', minLength: 1 },
+    productionclientname: { type: 'string', minLength: 1 },
   },
-  required: ['jobname', 'jobstatus', 'submissiondeadline', 'synopsis', 'projectspecifications', 'budget', 'productionclientName'],
+  required: ['jobname', 'jobstatus', 'submissiondeadline', 'synopsis', 'projectspecifications', 'budget', 'productionclientname'],
 };
 
 module.exports = addJobSchema;

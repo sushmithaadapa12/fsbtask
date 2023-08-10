@@ -1,6 +1,6 @@
 const {addJobSchema,updateSchema,roleSchema,shootSchema,auditionSchema}= require('./../schemas');
 
-const {production} = require('../services');
+const {production,users} = require('../services');
 const Ajv = require('ajv');
 const addFormats = require('ajv-formats');
 
@@ -88,10 +88,10 @@ const createShoots = async (req, res) => {
 const updateJobStatus = async (req, res) => {
   const { public_id, jobStatus } = req.body;
 
-  const { errors } = Validator.isSchemaValid({ data: req.body, schema: updateSchema });
-  if (errors) {
-    return res.status(400).json({ error: errors });
-  }
+  const valid = ajv.validate(updateSchema, jobDetails);
+    if (!valid) {
+      return res.status(400).json({ error: ajv.errorsText() });
+    }
 
   try {
     const result = await production.updateJobStatus(public_id, jobStatus);
@@ -106,47 +106,13 @@ const updateJobStatus = async (req, res) => {
     return res.status(500).json({ error: 'Failed to update job status' });
   }
 };
-// subAccountController.js
-const SubAccountService = require('../services/subAccountService');
-
-const createSubAccount = async (req, res) => {
-  const { mainUserId, ...subAccountData } = req.body;
-  try {
-    const subAccount = await SubAccountService.createSubAccount(mainUserId, subAccountData);
-    res.status(201).json({ message: 'Subaccount created successfully', subAccount });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to create subaccount' });
-  }
-};
-
-// authController.js
-const AuthService = require('../services/authService');
-
-const signup = async (req, res) => {
-  const userData = req.body;
-  try {
-    const user = await AuthService.signup(userData);
-    res.status(201).json({ message: 'User registered successfully', user });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to register user' });
-  }
-};
-
-// jobController.js
-const JobService = require('../services/jobService');
-
-const createJobdd = async (req, res) => {
-  const jobDetails = req.body;
-  try {
-    const job = await JobService.createJob(jobDetails);
-    res.status(201).json({ message: 'Job created successfully', job });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to create job' });
-  }
-};
 
 
-module.exports={createJob,updateJobStatus,createRoles,createAuditions,createShoots}
+
+module.exports={
+  createJob,
+  updateJobStatus,
+  createRoles,
+  createAuditions,
+  createShoots,
+}
